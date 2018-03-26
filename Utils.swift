@@ -12,4 +12,8 @@ class Utils: NSObject {
     func myFirstPods() -> String {
         return "Hello World~~~~"
     }
+    
+    func mySecondPods() -> String {
+        return "Hay Man~"
+    }
 }
