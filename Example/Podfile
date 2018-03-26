@@ -1,0 +1,6 @@
+use_frameworks!
+target 'HSSwiftCommon_Tests' do
+  pod 'HSSwiftCommon', :path => '../'
+  
+  
+end
