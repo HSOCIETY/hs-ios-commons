@@ -15,12 +15,12 @@ public extension UIScreen {
      320x568 SE
      320x480 4s iOS9.x
      */
-    static var width = UIScreen.main.bounds.size.width
-    static var height = UIScreen.main.bounds.size.height
-    static var iPhone4: Bool { return UIScreen.height <= 480 }
-    static var underSE: Bool { return UIScreen.width < 375 }
-    static var overIPhone8: Bool { return UIScreen.width >= 375 }
-    static var iPhone8: Bool { return UIScreen.width == 375 }
-    static var iPhone8Plus: Bool { return UIScreen.width == 414 }
-    static var iphoneX: Bool { return UIScreen.main.nativeBounds.height == 2436 }
+    public static var width = UIScreen.main.bounds.size.width
+    public static var height = UIScreen.main.bounds.size.height
+    public static var iPhone4: Bool { return UIScreen.height <= 480 }
+    public static var underSE: Bool { return UIScreen.width < 375 }
+    public static var overIPhone8: Bool { return UIScreen.width >= 375 }
+    public static var iPhone8: Bool { return UIScreen.width == 375 }
+    public static var iPhone8Plus: Bool { return UIScreen.width == 414 }
+    public static var iphoneX: Bool { return UIScreen.main.nativeBounds.height == 2436 }
 }
