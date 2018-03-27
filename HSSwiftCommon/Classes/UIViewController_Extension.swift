@@ -98,17 +98,17 @@ extension UIViewController {
     }
 
     //
-    func showCustomIndicator(timeoutSec: TimeInterval = 15.0) {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            appDelegate.showIndicator(timeoutSec: timeoutSec)
-        }
-    }
-
-    func hideCustomIndicator() {
-        mainAsync {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                appDelegate.hideIndicator()
-            }
-        }
-    }
+//    func showCustomIndicator(timeoutSec: TimeInterval = 15.0) {
+//        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+//            appDelegate.showIndicator(timeoutSec: timeoutSec)
+//        }
+//    }
+//
+//    func hideCustomIndicator() {
+//        mainAsync {
+//            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+//                appDelegate.hideIndicator()
+//            }
+//        }
+//    }
 }

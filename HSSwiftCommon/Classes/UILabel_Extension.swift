@@ -47,17 +47,17 @@ extension UILabel {
         self.attributedText = attributedResult
     }
 
-    public func setAttributedStrings(attrList: [(text: String, color: UIColor, fontSize: Int)]) {
-        let attributedResult = NSMutableAttributedString()
-        for (str, color, fontSize) in attrList {
-            let attributedText = NSMutableAttributedString(string: str)
-            attributedText.addAttributes(
-                [NSAttributedStringKey.font: NANUM_BARUN_FONT(fontSize: CGFloat(fontSize)), NSAttributedStringKey.foregroundColor: color], range: NSRange(location: 0, length: str.length)
-            )
-            attributedResult.append(attributedText)
-        }
-        self.attributedText = attributedResult
-    }
+//    public func setAttributedStrings(attrList: [(text: String, color: UIColor, fontSize: Int)]) {
+//        let attributedResult = NSMutableAttributedString()
+//        for (str, color, fontSize) in attrList {
+//            let attributedText = NSMutableAttributedString(string: str)
+//            attributedText.addAttributes(
+//                [NSAttributedStringKey.font: NANUM_BARUN_FONT(fontSize: CGFloat(fontSize)), NSAttributedStringKey.foregroundColor: color], range: NSRange(location: 0, length: str.length)
+//            )
+//            attributedResult.append(attributedText)
+//        }
+//        self.attributedText = attributedResult
+//    }
 
     public func setAttributedStrings(attrList: [(text: String, color: UIColor, underline: Bool)]) {
         let attributedResult = NSMutableAttributedString()
