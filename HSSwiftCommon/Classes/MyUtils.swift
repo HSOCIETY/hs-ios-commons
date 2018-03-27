@@ -7,14 +7,28 @@
 
 import UIKit
 
-@public
-class MyUtils: NSObject {
+public class MyUtils: NSObject {
 
-    static func myFirstPods() -> String {
+   public static func myFirstPods() -> String {
+    print("------------------myFirstPods")
         return "Hello World~~~~"
     }
     
-    static func mySecondPods() -> String {
+    public static func mySecondPods() -> String {
+        print("------------------mySecondPods")
         return "Hay Man~"
     }
+    
+//    public static func callPrivateString() -> String {
+//        print("------------------callPrivateString")
+//        return myprivateFunc()
+//    }
 }
+
+//private extension MyUtils {
+//    static func myprivateFunc() -> String {
+//        print("------------------myprivateFunc")
+//        return "Hay Man~"
+//    }
+//}
+
