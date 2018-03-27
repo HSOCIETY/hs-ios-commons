@@ -9,12 +9,12 @@ import UIKit
 
 public class MyUtils: NSObject {
 
-   public static func myFirstPods() -> String {
+   func myFirstPods() -> String {
     print("------------------myFirstPods")
         return "Hello World~~~~"
     }
     
-    public static func mySecondPods() -> String {
+    func mySecondPods() -> String {
         print("------------------mySecondPods")
         return "Hay Man~"
     }
