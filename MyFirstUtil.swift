@@ -1,16 +1,15 @@
 //
-//  Utils.swift
+//  MyFirstUtil.swift
 //  HSSwiftCommon
 //
-//  Created by yoseop park on 2018. 3. 26..
+//  Created by yoseop park on 2018. 3. 27..
 //
 
 import UIKit
 
-public class MyUtils: NSObject {
-
-   public func myFirstPods() -> String {
-    print("------------------myFirstPods")
+public class MyFirstUtil: NSObject {
+    public func myFirstPods() -> String {
+        print("------------------myFirstPods")
         return "Hello World~~~~"
     }
     
@@ -25,10 +24,9 @@ public class MyUtils: NSObject {
     }
 }
 
-private extension MyUtils {
+private extension MyFirstUtil {
     static func myprivateFunc() -> String {
         print("------------------myprivateFunc")
         return "Hay Man~"
     }
 }
-
