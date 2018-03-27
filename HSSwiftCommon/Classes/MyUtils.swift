@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyUtils: NSObject {
+public class MyUtils: NSObject {
 
     static func myFirstPods() -> String {
         return "Hello World~~~~"
