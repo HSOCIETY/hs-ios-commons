@@ -12,11 +12,11 @@ extension UIFont {
     /*
      기본 폰트 정의
      */
-    static func nanumBarun(fontSize size: CGFloat) -> UIFont {
-        if let font = UIFont(name: "나눔바른고딕OTF", size: size) {
-            return font
-        } else {
-            return UIFont.systemFont(ofSize: size)
-        }
-    }
+//    static func nanumBarun(fontSize size: CGFloat) -> UIFont {
+//        if let font = UIFont(name: "나눔바른고딕OTF", size: size) {
+//            return font
+//        } else {
+//            return UIFont.systemFont(ofSize: size)
+//        }
+//    }
 }
