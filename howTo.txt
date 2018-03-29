@@ -11,6 +11,9 @@
 
 6. terminal 에서 'pod trunk push HSSwiftCommon.podspec'을 실행해준다.
 
+
 -------------
 
-'HSSwiftCommon.txt' <-> 'HSSwiftCommon.podspec'
+* Owner 추가하기
+pod trunk add-owner [Podfile명][Email계정]
+ex> pod trunk add-owner HSSwiftCommon hojin@hsociety.co.kr
