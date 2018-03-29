@@ -1,1 +1,5 @@
-pod trunk push HSSwiftCommon.podspec
+1. 파일을 추가 또는 수정
+2. 커밋
+3. tag를 달아준다.
+4. HSSwiftCommon.podspec 파일의 버전과 tag를 맞춘다.
+5. terminal 에서 'pod trunk push HSSwiftCommon.podspec'을 실행해준다.

@@ -9,13 +9,13 @@
 import Foundation
 
 extension Date {
-    func nowString() -> String {
+    public func nowString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter.string(from: self)
     }
 
-    func offsetFromNow() -> String {
+    public func offsetFromNow() -> String {
         let y = gapYearsFromNow()
         if y > 0 { return "\(y)년 전" }
 
@@ -40,7 +40,7 @@ extension Date {
         return ""
     }
 
-    public func daysAgoTuple(toDate: Date) -> (agoYears: Int, agoMonths: Int, agoDays: Int, agoHours: Int, agoMinutes: Int, agoSeconds: Int) {
+    public func agoTuple(toDate: Date) -> (agoYears: Int, agoMonths: Int, agoDays: Int, agoHours: Int, agoMinutes: Int, agoSeconds: Int) {
         let agoYears: Int = (Calendar.current as NSCalendar).components([.year], from: self, to: toDate, options: []).year ?? 0
 
         var agoMonths: Int = (Calendar.current as NSCalendar).components([.month], from: self, to: toDate, options: []).month ?? 0
@@ -59,6 +59,33 @@ extension Date {
         if agoSeconds > 60 { agoSeconds = (agoSeconds % 60) }
 
         return (agoYears: agoYears, agoMonths: agoMonths, agoDays: agoDays, agoHours: agoHours, agoMinutes: agoMinutes, agoSeconds: agoSeconds)
+    }
+
+    public func leftTimeString(toDate: Date) -> String {
+        let agos = self.agoTuple(toDate: toDate)
+        var leftHours = ""
+        var leftMinutes = ""
+        if self.day() == toDate.day() {
+            if agos.agoHours < 0 || agos.agoMinutes < 0 {
+                leftHours = "0"
+                leftMinutes = "0"
+            } else {
+                leftHours = "\(agos.agoHours)"
+                leftMinutes = "\(agos.agoMinutes)"
+            }
+        } else {
+            if agos.agoDays > 0 {
+                leftHours = "\(agos.agoHours+24)"
+                leftMinutes = "\(agos.agoMinutes)"
+            } else if agos.agoDays < 0 {
+                leftHours = "0"
+                leftMinutes = "0"
+            } else {
+                leftHours = "\(agos.agoHours)"
+                leftMinutes = "\(agos.agoMinutes)"
+            }
+        }
+        return "\(leftHours)시간 \(leftMinutes)분"
     }
 
     public func isEarlierThan(standardDate: Date) -> Bool {

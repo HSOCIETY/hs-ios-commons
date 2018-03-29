@@ -11,7 +11,6 @@ import Foundation
 extension UIButton {
 
     public func underLine(underLineText: String, underLineColor: UIColor) {
-
         let attrString = NSAttributedString(string: underLineText, attributes: [
             NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
             NSAttributedStringKey.foregroundColor: underLineColor,

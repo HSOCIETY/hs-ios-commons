@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIScreen {
+extension UIScreen {
     /*
      414x736 8+
      375x667 8s

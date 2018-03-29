@@ -10,7 +10,7 @@ import Foundation
 
 extension UIView {
 
-    func rotate(duration: CFTimeInterval = 1.2) {
+    public func rotate(duration: CFTimeInterval = 1.2) {
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.fromValue = 0.0
         rotateAnimation.toValue = CGFloat(Double.pi * 2.0)
@@ -19,11 +19,11 @@ extension UIView {
         self.layer.add(rotateAnimation, forKey: nil)
     }
 
-    func stopRotate() {
+    public func stopRotate() {
         self.layer.removeAllAnimations()
     }
 
-    func bounceBounce(_ count: Int = 0) {
+    public func bounceBounce(_ count: Int = 0) {
         if count >= 3 { return }
         UIView.animate(withDuration: 0.27, animations: {
             self.layer.transform = CATransform3DMakeScale(1.05, 1.05, 1.05)
@@ -37,7 +37,7 @@ extension UIView {
     }
 
     // 별점 줄때 플립하기
-    func flipAnimation(durationTime: TimeInterval = 0.07) {
+    public func flipAnimation(durationTime: TimeInterval = 0.07) {
         mainAsync {
             // 애니메이션
             UIView.animate(withDuration: durationTime, delay: 0.0, options: UIViewAnimationOptions(), animations: {
@@ -57,11 +57,11 @@ extension UIView {
         }
     }
 
-    class func flip(delayTime: Double = 0.05, _ views: UIView...) {
+    public static func flip(delayTime: Double = 0.05, _ views: UIView...) {
         for view in views {
-            delay(delayTime, closure: {
+            DispatchQueue.main.asyncAfter(deadline: .now()+Double(Int64(delayTime * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
                 view.flipAnimation()
-            })
+            }
         }
     }
 
@@ -121,13 +121,13 @@ extension UIView {
         }
     }
 
-    func alPhaBounceAnimated() {
-        self.alpha = 0.5
-        self.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0.8)
+    func bounceAnimated(alpha: CGFloat = 0.5, minScale: CGFloat = 0.8, maxScale: CGFloat = 1.02) {
+        self.alpha = alpha
+        self.layer.transform = CATransform3DMakeScale(minScale, minScale, minScale)
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
             self.alpha = 1.0
-            self.layer.transform = CATransform3DMakeScale(1.02, 1.02, 1.02)
+            self.layer.transform = CATransform3DMakeScale(maxScale, maxScale, maxScale)
         }) { _ in
             UIView.animate(withDuration: 0.3, animations: {
                 self.layoutIfNeeded()
@@ -137,26 +137,4 @@ extension UIView {
             }
         }
     }
-
-//    func right90Animation(scaleValue: CGFloat = 1.07, isBigScale: Bool = false, afterAction: @escaping ()->Void = {}) {
-//        if #available(iOS 10.0, *) {
-//            let generator = UIImpactFeedbackGenerator(style: .light)
-//            generator.impactOccurred()
-//        }
-//        
-//        let origin = self.layer.transform
-//        UIView.animate(withDuration: 0.1, animations: {
-//            self.layoutIfNeeded()
-//            self.layer.transform = CATransform3DMakeRotation(.pi / 2, 0, 0, 1)
-//
-//        }) { _ in
-//            UIView.animate(withDuration: 0.1, animations: {
-////                self.layoutIfNeeded()
-////                self.layer.transform = origin
-//            }) { _ in
-//                afterAction()
-//            }
-//            
-//        }
-//    }
 }

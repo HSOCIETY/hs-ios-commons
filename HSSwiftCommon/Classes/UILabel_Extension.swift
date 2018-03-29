@@ -18,50 +18,43 @@ extension UILabel {
         self.layer.addSublayer(border)
     }
 
-    public func colorString(text: String, coloredText: String, color: UIColor) {
-
-        let attributedString = NSMutableAttributedString(string: text)
-        let range = (text as NSString).range(of: coloredText)
-        attributedString.setAttributes([NSAttributedStringKey.foregroundColor: color], range: range)
+    public func setAttributedStrings(fullText: String, highlightText: String, highlightColor: UIColor) {
+        let attributedString = NSMutableAttributedString(string: fullText)
+        let range = (fullText as NSString).range(of: highlightText)
+        attributedString.setAttributes([NSAttributedStringKey.foregroundColor: highlightColor], range: range)
         self.attributedText = attributedString
     }
-
-    public func setAttributedStrings(textAndColorAttrList: [(text: String, color: UIColor)], isAlignCenter: Bool = false) {
+    /*
+     text + color + underline + font 커스텀.
+     */
+    public func setAttributedStrings(attrList: [(text: String, color: UIColor, underline: Bool, font: UIFont)]) {
         let attributedResult = NSMutableAttributedString()
-        for (str, color) in textAndColorAttrList {
-            let attributedText = NSMutableAttributedString(string: str)
-            if isAlignCenter {
-                let paraStyle = NSMutableParagraphStyle()
-                paraStyle.alignment = .center
+        for (str, color, containUnderline, font) in attrList {
+            if containUnderline {
+                let attributedText = NSMutableAttributedString(string: str)
                 attributedText.addAttributes(
-                    [NSAttributedStringKey.font: self.font, NSAttributedStringKey.paragraphStyle: paraStyle, NSAttributedStringKey.foregroundColor: color], range: NSRange(location: 0, length: str.length)
+                    [NSAttributedStringKey.font: font,
+                     NSAttributedStringKey.foregroundColor: color,
+                     NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue], range: NSRange(location: 0, length: str.length)
                 )
+                attributedResult.append(attributedText)
             } else {
+                let attributedText = NSMutableAttributedString(string: str)
                 attributedText.addAttributes(
-                    [NSAttributedStringKey.font: self.font, NSAttributedStringKey.foregroundColor: color], range: NSRange(location: 0, length: str.length)
+                    [NSAttributedStringKey.font: font,
+                     NSAttributedStringKey.foregroundColor: color], range: NSRange(location: 0, length: str.length)
                 )
+                attributedResult.append(attributedText)
             }
-
-            attributedResult.append(attributedText)
         }
         self.attributedText = attributedResult
     }
 
-//    public func setAttributedStrings(attrList: [(text: String, color: UIColor, fontSize: Int)]) {
-//        let attributedResult = NSMutableAttributedString()
-//        for (str, color, fontSize) in attrList {
-//            let attributedText = NSMutableAttributedString(string: str)
-//            attributedText.addAttributes(
-//                [NSAttributedStringKey.font: NANUM_BARUN_FONT(fontSize: CGFloat(fontSize)), NSAttributedStringKey.foregroundColor: color], range: NSRange(location: 0, length: str.length)
-//            )
-//            attributedResult.append(attributedText)
-//        }
-//        self.attributedText = attributedResult
-//    }
-
+    /*
+     text + color + underline 커스텀.
+     */
     public func setAttributedStrings(attrList: [(text: String, color: UIColor, underline: Bool)]) {
         let attributedResult = NSMutableAttributedString()
-
         for (str, color, containUnderline) in attrList {
             let attributedText = NSMutableAttributedString(string: str)
             if containUnderline {

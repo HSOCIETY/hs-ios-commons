@@ -40,11 +40,8 @@ extension UIImage {
      센터베이스로 크롭해줌.
      */
     public func cropToSquare() -> UIImage {
-
         let contextImage: UIImage = UIImage(cgImage: self.cgImage!)
-
         let contextSize: CGSize = contextImage.size
-
         var posX: CGFloat = 0.0
         var posY: CGFloat = 0.0
         var cgwidth: CGFloat = CGFloat(self.size.width)
@@ -71,7 +68,7 @@ extension UIImage {
         return image
     }
 
-    func blurImage() -> UIImage? {
+    public func toBlur() -> UIImage? {
         let context = CIContext(options: nil)
         let inputImage = CIImage(image: self)
         let originalOrientation = self.imageOrientation

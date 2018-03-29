@@ -15,7 +15,7 @@ extension UIImageView {
         setImageAndFocusOnFaces(image: self.image)
     }
 
-    public func setImageAndFocusOnFaces(image: UIImage?) {
+    private func setImageAndFocusOnFaces(image: UIImage?) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             if image == nil {
                 return
@@ -31,9 +31,7 @@ extension UIImageView {
                 let imgSize = CGSize(width: Double(image!.cgImage!.width), height: (Double(image!.cgImage!.height)))
                 self.applyFaceDetection(for: features, size: imgSize, cgImage: image!.cgImage!)
             } else {
-                DispatchQueue.main.async {
-                self.imageLayer().removeFromSuperlayer()
-                }
+                DispatchQueue.main.async { self.imageLayer().removeFromSuperlayer() }
             }
         }
     }
