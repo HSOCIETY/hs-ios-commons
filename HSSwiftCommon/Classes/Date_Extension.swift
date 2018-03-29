@@ -104,59 +104,59 @@ extension Date {
         return isElier
     }
 
-    func year() -> Int {
+    public func year() -> Int {
         return Calendar.current.component(.year, from: self)
     }
 
-    func month() -> Int {
+    public func month() -> Int {
         return Calendar.current.component(.month, from: self)
     }
 
-    func day() -> Int {
+    public func day() -> Int {
         return Calendar.current.component(.day, from: self)
     }
 
-    func weekday() -> Int {
+    public func weekday() -> Int {
         return Calendar.current.component(.weekday, from: self)
     }
 
-    func hour() -> Int {
+    public func hour() -> Int {
         return Calendar.current.component(.hour, from: self)
     }
 
-    func minute() -> Int {
+    public func minute() -> Int {
         return Calendar.current.component(.minute, from: self)
     }
 
-    func second() -> Int {
+    public func second() -> Int {
         return Calendar.current.component(.second, from: self)
     }
 
-    func gapYearsFromNow() -> Int {
+    public func gapYearsFromNow() -> Int {
         return Calendar.current.dateComponents([.year], from: self, to: Date()).year ?? 0
     }
 
-    func gapMonthsFromNow() -> Int {
+    public func gapMonthsFromNow() -> Int {
         return Calendar.current.dateComponents([.month], from: self, to: Date()).month ?? 0
     }
 
-    func gapWeeksFromNow() -> Int {
+    public func gapWeeksFromNow() -> Int {
         return Calendar.current.dateComponents([.weekOfYear], from: self, to: Date()).weekOfYear ?? 0
     }
 
-    func gapDaysFromNow() -> Int {
+    public func gapDaysFromNow() -> Int {
         return Calendar.current.dateComponents([.day], from: self, to: Date()).day ?? 0
     }
 
-    func gapHoursFromNow() -> Int {
+    public func gapHoursFromNow() -> Int {
         return Calendar.current.dateComponents([.hour], from: self, to: Date()).hour ?? 0
     }
 
-    func gapMinutesFromNow() -> Int {
+    public func gapMinutesFromNow() -> Int {
         return Calendar.current.dateComponents([.minute], from: self, to: Date()).minute ?? 0
     }
 
-    func gapSecondsFromNow() -> Int {
+    public func gapSecondsFromNow() -> Int {
         return Calendar.current.dateComponents([.second], from: self, to: Date()).second ?? 0
     }
 }

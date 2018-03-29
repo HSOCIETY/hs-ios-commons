@@ -96,7 +96,7 @@ extension UIView {
         self.layer.shadowRadius = radius
     }
 
-    func touchAnimation(scaleValue: CGFloat = 1.07, isBigScale: Bool = false, afterAction: @escaping () -> Void = {}) {
+    public func touchAnimation(scaleValue: CGFloat = 1.07, isBigScale: Bool = false, afterAction: @escaping () -> Void = {}) {
         if #available(iOS 10.0, *) {
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
@@ -121,7 +121,7 @@ extension UIView {
         }
     }
 
-    func bounceAnimated(alpha: CGFloat = 0.5, minScale: CGFloat = 0.8, maxScale: CGFloat = 1.02) {
+    public func bounceAnimated(alpha: CGFloat = 0.5, minScale: CGFloat = 0.8, maxScale: CGFloat = 1.02) {
         self.alpha = alpha
         self.layer.transform = CATransform3DMakeScale(minScale, minScale, minScale)
         UIView.animate(withDuration: 0.5, animations: {
