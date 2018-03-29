@@ -11,7 +11,7 @@ import Foundation
 extension UIImage {
 
     // uiview를 이미지로 만들기
-    convenience init?(view: UIView) {
+    public convenience init?(view: UIView) {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
         let image = UIGraphicsGetImageFromCurrentImageContext()
