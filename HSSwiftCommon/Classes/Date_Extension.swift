@@ -9,12 +9,20 @@
 import Foundation
 
 extension Date {
-    public func nowString() -> String {
+    enum NowType: String {
+        case now1 = "yyyy-MM-dd HH:mm:ss"
+        case now2 = "yyyyMMddHHmmss"
+        
+        var dateFormat: String {
+            return self.rawValue
+        }
+    }
+    public func nowString(nowType: NowType = .now1) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = nowType.dateFormat
         return formatter.string(from: self)
     }
-
+    
     public func offsetFromNow() -> String {
         let y = gapYearsFromNow()
         if y > 0 { return "\(y)년 전" }
