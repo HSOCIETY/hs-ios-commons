@@ -8,15 +8,17 @@
 
 import Foundation
 
-extension Date {
-    enum NowType: String {
-        case now1 = "yyyy-MM-dd HH:mm:ss"
-        case now2 = "yyyyMMddHHmmss"
-        
-        var dateFormat: String {
-            return self.rawValue
-        }
+public enum NowType: String {
+    case now1 = "yyyy-MM-dd HH:mm:ss"
+    case now2 = "yyyyMMddHHmmss"
+    
+    var dateFormat: String {
+        return self.rawValue
     }
+}
+
+extension Date {
+    
     public func nowString(nowType: NowType = .now1) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = nowType.dateFormat
