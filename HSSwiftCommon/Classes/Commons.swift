@@ -24,7 +24,7 @@ public func showAlert(_ parent: UIViewController, title: String, message: String
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
     alertController.addAction( UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: okAction) )
     if showCancelButton { alertController.addAction( UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.cancel, handler: cancelAction)) }
-    parent.present(alertController, animated: true, completion: nil)
+    parent.present(alertController, animated: true, completion: nil) 
 }
 
 public func showToastAlert(_ parent: UIViewController, title: String, message: String, seconds: Double, actionAfter: (() -> Void)?) {
