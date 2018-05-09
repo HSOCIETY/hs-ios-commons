@@ -22,12 +22,12 @@ public func mainAsync(_ closure: @escaping () -> Void) {
 
 public func showAlert(_ parent: UIViewController, title: String, message: String, buttonTitle: String, okAction: ((UIAlertAction) -> Void)?, cancelTitle: String = "취소", cancelAction: ((UIAlertAction) -> Void)?, showCancelButton: Bool) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-    alertController.addAction( UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: buttonAction) )
-    if showCancelButton { alertController.addAction( UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.cancel, handler: cancelButtonAction }
+    alertController.addAction( UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: okAction) )
+    if showCancelButton { alertController.addAction( UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.cancel, handler: cancelAction)) }
     parent.present(alertController, animated: true, completion: nil)
 }
 
-public func showToastAlert(_ parent: UIViewController, title: String, message: String, seconds: Double, okActionAfter: (() -> Void)?) {
+public func showToastAlert(_ parent: UIViewController, title: String, message: String, seconds: Double, actionAfter: (() -> Void)?) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
     parent.present(alertController, animated: true, completion: nil)
     
