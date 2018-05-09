@@ -81,6 +81,21 @@ public class RoundWebView: UIWebView {
     }
 }
 
+public class RoundTextField: UITextField {
+    @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var borderColor: UIColor = UIColor.clear
+    @IBInspectable var borderWidth: CGFloat = 0
+    
+    override public func draw(_ rect: CGRect) {
+        self.layer.masksToBounds = true
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.cornerRadius = cornerRadius
+        
+        super.draw(rect)
+    }
+}
+
 @IBDesignable
 public class DotLineView: UIView {
     override public func draw(_ rect: CGRect) {

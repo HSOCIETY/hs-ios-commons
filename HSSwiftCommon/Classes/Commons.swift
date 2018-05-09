@@ -20,14 +20,14 @@ public func mainAsync(_ closure: @escaping () -> Void) {
     DispatchQueue.main.async(execute: closure)
 }
 
-public func showAlert(_ parent: UIViewController, title: String, message: String, buttonTitle: String, buttonAction: ((UIAlertAction) -> Void)?, cancelTitle: String = "취소", showCancelButton: Bool) {
+public func showAlert(_ parent: UIViewController, title: String, message: String, buttonTitle: String, okAction: ((UIAlertAction) -> Void)?, cancelTitle: String = "취소", cancelAction: ((UIAlertAction) -> Void)?, showCancelButton: Bool) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
     alertController.addAction( UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: buttonAction) )
-    if showCancelButton { alertController.addAction( UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.cancel, handler: { _ in }) ) }
+    if showCancelButton { alertController.addAction( UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.cancel, handler: cancelButtonAction }
     parent.present(alertController, animated: true, completion: nil)
 }
 
-public func showToastAlert(_ parent: UIViewController, title: String, message: String, seconds: Double, actionAfter: (() -> Void)?) {
+public func showToastAlert(_ parent: UIViewController, title: String, message: String, seconds: Double, okActionAfter: (() -> Void)?) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
     parent.present(alertController, animated: true, completion: nil)
     
