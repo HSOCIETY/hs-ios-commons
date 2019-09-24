@@ -70,17 +70,6 @@ public class RoundImageView: UIImageView {
 }
 
 @IBDesignable
-public class RoundWebView: UIWebView {
-    @IBInspectable var cornerRadius: CGFloat = 0
-
-    override public func draw(_ rect: CGRect) {
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = cornerRadius
-
-        super.draw(rect)
-    }
-}
-
 public class RoundTextField: UITextField {
     @IBInspectable var cornerRadius: CGFloat = 0
     @IBInspectable var borderColor: UIColor = UIColor.clear
