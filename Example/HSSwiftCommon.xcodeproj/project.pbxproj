@@ -20,7 +20,7 @@
 		67C7AE505B8736F0094F4B90 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		79920E884E4001BFE2DAEBD7 /* Pods-HSSwiftCommon_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSSwiftCommon_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HSSwiftCommon_Tests/Pods-HSSwiftCommon_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1E0C9A100DBE939333043F1 /* Pods-HSSwiftCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSSwiftCommon_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HSSwiftCommon_Tests/Pods-HSSwiftCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E41708F083AC2032B0FDC954 /* HSSwiftCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HSSwiftCommon.podspec; path = ../HSSwiftCommon.podspec; sourceTree = "<group>"; };
+		E41708F083AC2032B0FDC954 /* HSSwiftCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HSSwiftCommon.podspec; path = ../HSSwiftCommon.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +145,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +339,7 @@
 			baseConfigurationReference = 79920E884E4001BFE2DAEBD7 /* Pods-HSSwiftCommon_Tests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DTWMHU2QN8;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -363,6 +365,7 @@
 			baseConfigurationReference = C1E0C9A100DBE939333043F1 /* Pods-HSSwiftCommon_Tests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DTWMHU2QN8;
 				FRAMEWORK_SEARCH_PATHS = (
